@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+  <movie genre="Drama">
+    <title>Flight</title>
+    <year>2012</year>
+    <length>2h 18m</length>
+    <director>Robert Zemeckis</director>
+    <audienceRating>4.6</audienceRating>
+    <imageFilePath>??/images/flight.jpg</imageFilePath>
+  </movie>
+  <movie genre="Action">
+    <title>James Bond: Skyfall</title>
+    <year>2012</year>
+    <length>2h 24m</length>
+    <director>Sam Mendes</director>
+    <audienceRating>4.6</audienceRating>
+    <imageFilePath>??/images/skyfall.jpg</imageFilePath>
+  </movie>
+  <movie genre="Action">
+    <title>Pirates of the Caribbean: Dead Man's Chest</title>
+    <year>2006</year>
+    <length>2h 31m</length>
+    <director>Gore Verbinski</director>
+    <audienceRating>4.7</audienceRating>
+    <imageFilePath>??/images/piratesDMC.jpg</imageFilePath>
+  </movie>
+  <movie genre="Comedy">
+    <title>Vacation</title>
+    <year>2015</year>
+    <length>1h 39m</length>
+    <director>John Francis Daley</director>
+    <audienceRating>4.1</audienceRating>
+    <imageFilePath>??/images/vacation.jpg</imageFilePath>
+  </movie>
+  <movie genre="Action">
+    <title>The Rundown</title>
+    <year>2003</year>
+    <length>1h 45m</length>
+    <director>Peter Berg</director>
+    <audienceRating>3.4</audienceRating>
+    <imageFilePath>??/images/rundown.jpg</imageFilePath>
+  </movie>
+  <movie genre="Comedy">
+    <title>Green Book</title>
+    <year>2018</year>
+    <length>1h 39m</length>
+    <director>Peter Farrelly</director>
+    <audienceRating>4.8</audienceRating>
+    <imageFilePath>??/images/greenBook.png</imageFilePath>
+  </movie>
+  <movie genre="Comedy">
+    <title>Murder Mystery</title>
+    <year>2019</year>
+    <length>1h 37m</length>
+    <director>PKyle Newacheck</director>
+    <audienceRating>4.2</audienceRating>
+    <imageFilePath>??/images/murderMystery.jpg</imageFilePath>
+  </movie>
+  <movie genre="Drama">
+    <title>Lincoln</title>
+    <year>2012</year>
+    <length>2h 30m</length>
+    <director>Steven Spielberg</director>
+    <audienceRating>4.4</audienceRating>
+    <imageFilePath>??/images/lincoln.jpg</imageFilePath>
+  </movie>
+  <movie genre="Family">
+    <title>Toy Story 4</title>
+    <year>2019</year>
+    <length>1h 40m</length>
+    <director>Josh Cooley</director>
+    <audienceRating>4.0</audienceRating>
+    <imageFilePath>??/images/toyStory4.jpg</imageFilePath>
+  </movie>
+  <movie genre="Family">
+    <title>shrek 2</title>
+    <year>2004</year>
+    <length>1h 45m</length>
+    <director>Kelly Asbury</director>
+    <audienceRating>4.8</audienceRating>
+    <imageFilePath>??/images/shrek2.jpg</imageFilePath>
+  </movie>
+</movies>

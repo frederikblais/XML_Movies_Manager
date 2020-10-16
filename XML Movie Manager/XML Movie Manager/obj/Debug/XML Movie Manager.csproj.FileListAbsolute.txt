@@ -8,3 +8,13 @@ C:\Users\Frederik Blais\source\repos\XML Movie Manager\XML Movie Manager\obj\Deb
 C:\Users\Frederik Blais\source\repos\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.csproj.CoreCompileInputs.cache
 C:\Users\Frederik Blais\source\repos\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.exe
 C:\Users\Frederik Blais\source\repos\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.pdb
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\bin\Debug\XML Movie Manager.exe.config
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\bin\Debug\XML Movie Manager.exe
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\bin\Debug\XML Movie Manager.pdb
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.csprojAssemblyReference.cache
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML_Movie_Manager.Form1.resources
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML_Movie_Manager.Properties.Resources.resources
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.csproj.GenerateResource.cache
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.csproj.CoreCompileInputs.cache
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.exe
+C:\Users\Frederik Blais\source\repos\XML_Movies_Manager\XML Movie Manager\XML Movie Manager\obj\Debug\XML Movie Manager.pdb
