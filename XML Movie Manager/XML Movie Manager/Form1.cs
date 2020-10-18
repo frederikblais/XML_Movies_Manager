@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
+using System.Windows.Forms.VisualStyles;
 
 namespace XML_Movie_Manager
 {
@@ -28,17 +29,21 @@ namespace XML_Movie_Manager
             InitializeComponent();
 
             readXMLFile("movies.xml");
+
+            GetGenre();
         }
 
         /// <summary>
         ///             [ TO DO ]
         /// </summary>
         /// <param name="filePath"></param>
+        /// 
+
+        List<Movie> movieList = new List<Movie>();
+
         private void readXMLFile(string filePath)
         {
             Movie currentMovie;
-
-            List<Movie> movieList = new List<Movie>();
 
             if (File.Exists(filePath))
             {
@@ -116,6 +121,14 @@ namespace XML_Movie_Manager
                     // Take the text value of the 'imageFilePath' tag and assign it to the currentMovie.FilePath
                     currentMovie.FilePath = xmlReader.ReadElementContentAsString();
 
+                    try
+                    {
+                        imageList1.Images.Add(Image.FromFile(currentMovie.FilePath));
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Your image path is invalid, please delete the previously added movies.");
+                    }
 
                     // Add the current Movie to the movieList
                     movieList.Add(currentMovie);
@@ -137,6 +150,10 @@ namespace XML_Movie_Manager
         private void addButton_Click(object sender, EventArgs e)
         {
             appendNodeToXMLFile("movies.xml");
+
+            movieListBox.Items.Clear();
+
+            readXMLFile("movies.xml");
 
             // Clear textboxes
             addGenreTextBox.Text = "";
@@ -260,9 +277,60 @@ namespace XML_Movie_Manager
             }
         }
 
+        private void GetGenre()
+        {
+            genreListBox.Items.Clear();
+
+            foreach (Movie movie in movieList)
+            {
+                if (!genreListBox.Items.Contains(movie.Genre))
+                {
+                    genreListBox.Items.Add(movie.Genre);
+                }
+            }
+        }
+
+        private void genreListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            movieListBox.Items.Clear();
+
+            string selection = genreListBox.SelectedItem.ToString();
+
+            foreach(Movie movie in movieList)
+            {
+                if (movie.Genre == selection)
+                {
+                    movieListBox.Items.Add(movie.Title);
+                }
+
+            }
+        }
+
         private void movieListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string selectedMovie = movieListBox.SelectedItem.ToString();
 
+                foreach(Movie movie in movieList)
+                {
+                    if(movie.Title == selectedMovie)
+                    {
+                        titleLabel.Text = movie.Title;
+                        yearLabel.Text = movie.Year.ToString();
+                        lengthLabel.Text = movie.Length;
+                        directorLabel.Text = movie.Director;
+                        ratingLabel.Text = movie.Rating;
+
+                        int imageIndex = movieList.FindIndex(a => a.Title == selectedMovie);
+                        pictureBox1.Image = imageList1.Images[imageIndex];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
