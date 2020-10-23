@@ -80,12 +80,4 @@
     <audienceRating>4.8</audienceRating>
     <imageFilePath>images/shrek2.jpg</imageFilePath>
   </movie>
-  <movie genre="Drama">
-    <title>TEST</title>
-    <year>2020</year>
-    <length>2m</length>
-    <director>fred</director>
-    <audienceRating>5</audienceRating>
-    <imageFilePath>images/toyStory4.jpg</imageFilePath>
-  </movie>
 </movies>

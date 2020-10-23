@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
-using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
-using System.Xml.XPath;
 
 namespace XML_Movie_Manager
 {
@@ -46,14 +41,14 @@ namespace XML_Movie_Manager
 
         }
 
-        /// <summary>
-        ///             [ TO DO ]
-        /// </summary>
-        /// <param name="filePath"></param>
-        /// 
-
         List<Movie> movieList = new List<Movie>();
 
+        /// <summary>
+        /// 
+        /// Methos to read throught the xml file and assign the elements values to an object.
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
         private void readXMLFile(string filePath)
         {
             Movie currentMovie;
@@ -159,6 +154,14 @@ namespace XML_Movie_Manager
             }
         }
 
+        /// <summary>
+        /// 
+        /// check if add movie is empty, if not:
+        /// Add the inputted movie to the XMLfile and then scan the xml to refresh
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addButton_Click(object sender, EventArgs e)
         {
 
@@ -301,11 +304,20 @@ namespace XML_Movie_Manager
             }
         }
 
+        /// <summary>
+        /// Call the DeleteNode("movies.xml") method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             DeleteNode("movies.xml");
         }
 
+        /// <summary>
+        /// Method to delete a selected parent element with its children when called.
+        /// </summary>
+        /// <param name="filePath"></param>
         private void DeleteNode(string filePath)
         {
             XElement objElement = XElement.Load(filePath);
@@ -317,6 +329,9 @@ namespace XML_Movie_Manager
             readXMLFile("movies.xml");
         }
 
+        /// <summary>
+        /// Method to loop through every movies and add the unique genres.
+        /// </summary>
         private void GetGenre()
         {
             genreListBox.Items.Clear();
@@ -330,6 +345,11 @@ namespace XML_Movie_Manager
             }
         }
 
+        /// <summary>
+        /// Method to display the various movies in the movies listbox when index is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void genreListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Exeption when clicking outside ot the ListBox's index
@@ -352,6 +372,11 @@ namespace XML_Movie_Manager
             }
         }
 
+        /// <summary>
+        /// Method that displays the selected movie to the textBoxes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void movieListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -387,6 +412,11 @@ namespace XML_Movie_Manager
             }
         }
 
+        /// <summary>
+        /// Enable Modify view to be able to change the xml values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modifyButton_Click(object sender, EventArgs e)
         {
             titleTextBox.Enabled = true;
@@ -413,6 +443,11 @@ namespace XML_Movie_Manager
             addButton.Enabled = false;
         }
 
+        /// <summary>
+        /// Method to save the modified selection to the XMLfile and to display it to both listBoxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveButton_Click(object sender, EventArgs e)
         {
             titleTextBox.Enabled = false;
@@ -544,6 +579,11 @@ namespace XML_Movie_Manager
             }
         }
 
+        /// <summary>
+        /// Method to display all the movies in the XML file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void showAllButton_Click(object sender, EventArgs e)
         {
             movieListBox.Items.Clear();
