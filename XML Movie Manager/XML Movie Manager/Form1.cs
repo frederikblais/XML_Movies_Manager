@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using System.Windows.Forms.VisualStyles;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace XML_Movie_Manager
 {
@@ -31,6 +33,17 @@ namespace XML_Movie_Manager
             readXMLFile("movies.xml");
 
             GetGenre();
+
+            titleTextBox.Enabled = false;
+            yearTextBox.Enabled = false;
+            lengthTextBox.Enabled = false;
+            directorTextBox.Enabled = false;
+            ratingTextBox.Enabled = false;
+            genreTextBox.Enabled = false;
+            pathTextBox.Enabled = false;
+
+            saveButton.Enabled = false;
+
         }
 
         /// <summary>
@@ -134,7 +147,6 @@ namespace XML_Movie_Manager
                     movieList.Add(currentMovie);
                     movieListBox.Items.Add(currentMovie.Title);
 
-
                 } while (xmlReader.ReadToFollowing("movie")); // Move to the next 'movie' node in the XML file
 
                 // Close the xmlReader
@@ -149,23 +161,35 @@ namespace XML_Movie_Manager
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            appendNodeToXMLFile("movies.xml");
 
-            movieListBox.Items.Clear();
+            if (addGenreTextBox.Text != "" || addTitleTextBox.Text != "" || addYearTextBox.Text != "" || addLengthTextBox.Text != "" 
+                || addDirectorTextBox.Text != "" || addRatingTextBox.Text != "" || addPathTextBox.Text != "")
+            {
+                appendNodeToXMLFile("movies.xml");
 
-            readXMLFile("movies.xml");
+                movieListBox.Items.Clear();
 
-            // Clear textboxes
-            addGenreTextBox.Text = "";
-            addTitleTextBox.Text = "";
-            addYearTextBox.Text = "";
-            addLengthTextBox.Text = "";
-            addDirectorTextBox.Text = "";
-            addRatingTextBox.Text = "";
-            addPathTextBox.Text = "";
+                readXMLFile("movies.xml");
 
-            // Set focus
-            addGenreTextBox.Focus();
+                // Clear textboxes
+                addGenreTextBox.Text = "";
+                addTitleTextBox.Text = "";
+                addYearTextBox.Text = "";
+                addLengthTextBox.Text = "";
+                addDirectorTextBox.Text = "";
+                addRatingTextBox.Text = "";
+                addPathTextBox.Text = "";
+
+                // Set focus
+                addGenreTextBox.Focus();
+
+                // Refresh genre
+                GetGenre();
+            }
+            else
+            {
+                MessageBox.Show("You must enter the required data before adding a new movie.");
+            }
         }
 
         /// <summary>
@@ -277,6 +301,22 @@ namespace XML_Movie_Manager
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DeleteNode("movies.xml");
+        }
+
+        private void DeleteNode(string filePath)
+        {
+            XElement objElement = XElement.Load(filePath);
+            XElement delNode = objElement.Descendants("movie").Where(a => a.Element("title").Value == movieListBox.SelectedItem.ToString()).FirstOrDefault();
+            delNode.Remove();
+            objElement.Save(filePath);
+
+            movieListBox.Items.Clear();
+            readXMLFile("movies.xml");
+        }
+
         private void GetGenre()
         {
             genreListBox.Items.Clear();
@@ -292,6 +332,12 @@ namespace XML_Movie_Manager
 
         private void genreListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Exeption when clicking outside ot the ListBox's index
+            if (genreListBox.SelectedIndices.Count <= 0)
+            {
+                return;
+            }
+
             movieListBox.Items.Clear();
 
             string selection = genreListBox.SelectedItem.ToString();
@@ -310,17 +356,25 @@ namespace XML_Movie_Manager
         {
             try
             {
+                // Exeption when clicking outside ot the ListBox's index
+                if (movieListBox.SelectedIndices.Count <= 0)
+                {
+                    return;
+                }
+
                 string selectedMovie = movieListBox.SelectedItem.ToString();
 
                 foreach(Movie movie in movieList)
                 {
                     if(movie.Title == selectedMovie)
                     {
-                        titleLabel.Text = movie.Title;
-                        yearLabel.Text = movie.Year.ToString();
-                        lengthLabel.Text = movie.Length;
-                        directorLabel.Text = movie.Director;
-                        ratingLabel.Text = movie.Rating;
+                        genreTextBox.Text = movie.Genre;
+                        titleTextBox.Text = movie.Title;
+                        yearTextBox.Text = movie.Year.ToString();
+                        lengthTextBox.Text = movie.Length;
+                        directorTextBox.Text = movie.Director;
+                        ratingTextBox.Text = movie.Rating;
+                        pathTextBox.Text = movie.FilePath;
 
                         int imageIndex = movieList.FindIndex(a => a.Title == selectedMovie);
                         pictureBox1.Image = imageList1.Images[imageIndex];
@@ -333,16 +387,169 @@ namespace XML_Movie_Manager
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void modifyButton_Click(object sender, EventArgs e)
         {
+            titleTextBox.Enabled = true;
+            yearTextBox.Enabled = true;
+            lengthTextBox.Enabled = true;
+            directorTextBox.Enabled = true;
+            ratingTextBox.Enabled = true;
+            genreTextBox.Enabled = true;
+            pathTextBox.Enabled = true;
 
+            addGenreTextBox.Enabled = false;
+            addTitleTextBox.Enabled = false;
+            addYearTextBox.Enabled = false;
+            addLengthTextBox.Enabled = false;
+            addDirectorTextBox.Enabled = false;
+            addRatingTextBox.Enabled = false;
+            addPathTextBox.Enabled = false;
+
+            titleTextBox.Focus();
+
+            saveButton.Enabled = true;
+            modifyButton.Enabled = false;
+            deleteButton.Enabled = false;
+            addButton.Enabled = false;
         }
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            titleTextBox.Enabled = false;
+            yearTextBox.Enabled = false;
+            lengthTextBox.Enabled = false;
+            directorTextBox.Enabled = false;
+            ratingTextBox.Enabled = false;
+            genreTextBox.Enabled = false;
+            pathTextBox.Enabled = false;
+
+            addGenreTextBox.Enabled = true;
+            addTitleTextBox.Enabled = true;
+            addYearTextBox.Enabled = true;
+            addLengthTextBox.Enabled = true;
+            addDirectorTextBox.Enabled = true;
+            addRatingTextBox.Enabled = true;
+            addPathTextBox.Enabled = true;
+
+            modifyButton.Enabled = true;
+            saveButton.Enabled = false;
+            deleteButton.Enabled = true;
+            addButton.Enabled = true;
+
+            DeleteNode("movies.xml");
+
+            XmlDocument xmlDoc = new XmlDocument();
+
+            if (File.Exists("movies.xml"))
+            {
+                // Load the xml file root element in memory
+                xmlDoc.Load("movies.xml");
+
+                // Create the XML File root element in memory
+                XmlElement rootNode = xmlDoc.DocumentElement;
+
+                // Create one XML for each node representing a new movie entry 
+                XmlElement newMovieNode = xmlDoc.CreateElement("movie");
+                XmlElement newTitleNode = xmlDoc.CreateElement("title");
+                XmlElement newYearNode = xmlDoc.CreateElement("year");
+                XmlElement newLengthNode = xmlDoc.CreateElement("length");
+                XmlElement newDirectorNode = xmlDoc.CreateElement("director");
+                XmlElement newRatingNode = xmlDoc.CreateElement("audienceRating");
+                XmlElement newFilePathNode = xmlDoc.CreateElement("imageFilePath");
+
+                // Create a TextNode element to assign the content to each node in the movie entry
+                XmlText newTextNode;
+
+
+                // --- TITLE ---
+
+                // Assign a value for the 'category' attribute of the 'book' node
+                newMovieNode.SetAttribute("genre", genreTextBox.Text);
+
+                // Create the content for the 'title' node
+                newTextNode = xmlDoc.CreateTextNode(titleTextBox.Text);
+
+                // Add the content to the 'title' node
+                newTitleNode.AppendChild(newTextNode);
+
+
+                // --- YEAR ---
+
+                // Create the content for the 'Year' node
+                newTextNode = xmlDoc.CreateTextNode(yearTextBox.Text);
+
+                // Add the content to the 'Year' node
+                newYearNode.AppendChild(newTextNode);
+
+
+                // --- LENGTH ---
+
+                // Create the content for the 'Length' node
+                newTextNode = xmlDoc.CreateTextNode(lengthTextBox.Text);
+
+                // Add the content to the 'Length' node
+                newLengthNode.AppendChild(newTextNode);
+
+
+                // --- DIRECTOR ---
+
+                // Create the content for the 'Director' node
+                newTextNode = xmlDoc.CreateTextNode(directorTextBox.Text);
+
+                // Add the content to the 'Director' node
+                newDirectorNode.AppendChild(newTextNode);
+
+
+                // --- RATING ---
+
+                // Create the content for the 'Rating' node
+                newTextNode = xmlDoc.CreateTextNode(ratingTextBox.Text);
+
+                // Add the content to the 'Rating' node
+                newRatingNode.AppendChild(newTextNode);
+
+
+                // --- PATH ---
+
+                // Create the content for the 'FilePath' node
+                newTextNode = xmlDoc.CreateTextNode(pathTextBox.Text);
+
+                // Add the content to the 'FilePath' node
+                newFilePathNode.AppendChild(newTextNode);
+
+
+                // Append each 'child' node to the 'movie' node 
+                newMovieNode.AppendChild(newTitleNode);
+                newMovieNode.AppendChild(newYearNode);
+                newMovieNode.AppendChild(newLengthNode);
+                newMovieNode.AppendChild(newDirectorNode);
+                newMovieNode.AppendChild(newRatingNode);
+                newMovieNode.AppendChild(newFilePathNode);
+
+                // Append the 'movie' node to the root ('movies') node
+                rootNode.AppendChild(newMovieNode);
+
+                // Save the updated version of the xmlDocument to the file
+                xmlDoc.Save("movies.xml");
+
+                movieListBox.Items.Clear();
+
+                readXMLFile("movies.xml");
+
+                GetGenre();
+            }
+            else
+            {
+                MessageBox.Show("The file " + "movies.xml" + " does not exists.");
+            }
+        }
+
+        private void showAllButton_Click(object sender, EventArgs e)
+        {
+            movieListBox.Items.Clear();
+            readXMLFile("movies.xml");
+            GetGenre();
+        }
 
         /// <summary>
         /// Close the form.

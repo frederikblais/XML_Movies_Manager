@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <movies>
   <movie genre="Drama">
     <title>Flight</title>
@@ -79,5 +79,13 @@
     <director>Kelly Asbury</director>
     <audienceRating>4.8</audienceRating>
     <imageFilePath>images/shrek2.jpg</imageFilePath>
+  </movie>
+  <movie genre="Drama">
+    <title>TEST</title>
+    <year>2020</year>
+    <length>2m</length>
+    <director>fred</director>
+    <audienceRating>5</audienceRating>
+    <imageFilePath>images/toyStory4.jpg</imageFilePath>
   </movie>
 </movies>

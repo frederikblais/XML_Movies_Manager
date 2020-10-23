@@ -36,11 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.lengthLabel = new System.Windows.Forms.Label();
-            this.directorLabel = new System.Windows.Forms.Label();
-            this.ratingLabel = new System.Windows.Forms.Label();
-            this.yearLabel = new System.Windows.Forms.Label();
             this.modifyButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -62,7 +57,19 @@
             this.label28 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.ratingTextBox = new System.Windows.Forms.TextBox();
+            this.directorTextBox = new System.Windows.Forms.TextBox();
+            this.lengthTextBox = new System.Windows.Forms.TextBox();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.genreTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pathTextBox = new System.Windows.Forms.TextBox();
+            this.showAllButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,18 +77,18 @@
             // movieListBox
             // 
             this.movieListBox.FormattingEnabled = true;
-            this.movieListBox.Location = new System.Drawing.Point(12, 174);
+            this.movieListBox.Location = new System.Drawing.Point(12, 187);
             this.movieListBox.Name = "movieListBox";
-            this.movieListBox.Size = new System.Drawing.Size(225, 173);
+            this.movieListBox.Size = new System.Drawing.Size(225, 160);
             this.movieListBox.TabIndex = 0;
             this.movieListBox.SelectedIndexChanged += new System.EventHandler(this.movieListBox_SelectedIndexChanged);
             // 
             // genreListBox
             // 
             this.genreListBox.FormattingEnabled = true;
-            this.genreListBox.Location = new System.Drawing.Point(12, 12);
+            this.genreListBox.Location = new System.Drawing.Point(12, 38);
             this.genreListBox.Name = "genreListBox";
-            this.genreListBox.Size = new System.Drawing.Size(225, 147);
+            this.genreListBox.Size = new System.Drawing.Size(225, 121);
             this.genreListBox.TabIndex = 1;
             this.genreListBox.SelectedIndexChanged += new System.EventHandler(this.genreListBox_SelectedIndexChanged);
             // 
@@ -106,7 +113,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(260, 259);
+            this.label4.Location = new System.Drawing.Point(414, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 6;
@@ -115,7 +122,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(252, 294);
+            this.label5.Location = new System.Drawing.Point(250, 264);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 7;
@@ -124,60 +131,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(260, 329);
+            this.label6.Location = new System.Drawing.Point(416, 264);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Rating:";
             // 
-            // titleLabel
-            // 
-            this.titleLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.titleLabel.Location = new System.Drawing.Point(303, 185);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(285, 23);
-            this.titleLabel.TabIndex = 11;
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lengthLabel
-            // 
-            this.lengthLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lengthLabel.Location = new System.Drawing.Point(303, 254);
-            this.lengthLabel.Name = "lengthLabel";
-            this.lengthLabel.Size = new System.Drawing.Size(285, 23);
-            this.lengthLabel.TabIndex = 12;
-            this.lengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // directorLabel
-            // 
-            this.directorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.directorLabel.Location = new System.Drawing.Point(303, 289);
-            this.directorLabel.Name = "directorLabel";
-            this.directorLabel.Size = new System.Drawing.Size(285, 23);
-            this.directorLabel.TabIndex = 13;
-            this.directorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ratingLabel
-            // 
-            this.ratingLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ratingLabel.Location = new System.Drawing.Point(303, 324);
-            this.ratingLabel.Name = "ratingLabel";
-            this.ratingLabel.Size = new System.Drawing.Size(285, 23);
-            this.ratingLabel.TabIndex = 14;
-            this.ratingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // yearLabel
-            // 
-            this.yearLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.yearLabel.Location = new System.Drawing.Point(303, 218);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(285, 23);
-            this.yearLabel.TabIndex = 16;
-            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // modifyButton
             // 
-            this.modifyButton.Location = new System.Drawing.Point(138, 384);
+            this.modifyButton.Location = new System.Drawing.Point(68, 374);
             this.modifyButton.Name = "modifyButton";
             this.modifyButton.Size = new System.Drawing.Size(99, 23);
             this.modifyButton.TabIndex = 18;
@@ -187,7 +149,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(138, 464);
+            this.saveButton.Location = new System.Drawing.Point(68, 456);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(99, 23);
             this.saveButton.TabIndex = 19;
@@ -197,7 +159,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(138, 543);
+            this.exitButton.Location = new System.Drawing.Point(68, 533);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(99, 23);
             this.exitButton.TabIndex = 20;
@@ -207,7 +169,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(138, 504);
+            this.addButton.Location = new System.Drawing.Point(68, 494);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(99, 23);
             this.addButton.TabIndex = 21;
@@ -231,9 +193,9 @@
             this.groupBox2.Controls.Add(this.addGenreTextBox);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label28);
-            this.groupBox2.Location = new System.Drawing.Point(296, 364);
+            this.groupBox2.Location = new System.Drawing.Point(255, 364);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(292, 202);
+            this.groupBox2.Size = new System.Drawing.Size(319, 202);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Add new";
@@ -287,49 +249,49 @@
             // 
             this.addPathTextBox.Location = new System.Drawing.Point(48, 173);
             this.addPathTextBox.Name = "addPathTextBox";
-            this.addPathTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addPathTextBox.Size = new System.Drawing.Size(265, 20);
             this.addPathTextBox.TabIndex = 26;
             // 
             // addRatingTextBox
             // 
             this.addRatingTextBox.Location = new System.Drawing.Point(48, 147);
             this.addRatingTextBox.Name = "addRatingTextBox";
-            this.addRatingTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addRatingTextBox.Size = new System.Drawing.Size(265, 20);
             this.addRatingTextBox.TabIndex = 25;
             // 
             // addDirectorTextBox
             // 
             this.addDirectorTextBox.Location = new System.Drawing.Point(48, 121);
             this.addDirectorTextBox.Name = "addDirectorTextBox";
-            this.addDirectorTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addDirectorTextBox.Size = new System.Drawing.Size(265, 20);
             this.addDirectorTextBox.TabIndex = 24;
             // 
             // addLengthTextBox
             // 
             this.addLengthTextBox.Location = new System.Drawing.Point(48, 95);
             this.addLengthTextBox.Name = "addLengthTextBox";
-            this.addLengthTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addLengthTextBox.Size = new System.Drawing.Size(265, 20);
             this.addLengthTextBox.TabIndex = 23;
             // 
             // addYearTextBox
             // 
             this.addYearTextBox.Location = new System.Drawing.Point(48, 69);
             this.addYearTextBox.Name = "addYearTextBox";
-            this.addYearTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addYearTextBox.Size = new System.Drawing.Size(265, 20);
             this.addYearTextBox.TabIndex = 22;
             // 
             // addTitleTextBox
             // 
             this.addTitleTextBox.Location = new System.Drawing.Point(48, 43);
             this.addTitleTextBox.Name = "addTitleTextBox";
-            this.addTitleTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addTitleTextBox.Size = new System.Drawing.Size(265, 20);
             this.addTitleTextBox.TabIndex = 21;
             // 
             // addGenreTextBox
             // 
             this.addGenreTextBox.Location = new System.Drawing.Point(48, 17);
             this.addGenreTextBox.Name = "addGenreTextBox";
-            this.addGenreTextBox.Size = new System.Drawing.Size(230, 20);
+            this.addGenreTextBox.Size = new System.Drawing.Size(265, 20);
             this.addGenreTextBox.TabIndex = 20;
             // 
             // label27
@@ -352,9 +314,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(358, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(403, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 170);
+            this.pictureBox1.Size = new System.Drawing.Size(162, 148);
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
             // 
@@ -364,32 +326,136 @@
             this.imageList1.ImageSize = new System.Drawing.Size(200, 200);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // button1
+            // deleteButton
             // 
-            this.button1.Location = new System.Drawing.Point(138, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Delete selection";
-            this.button1.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(68, 416);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(99, 23);
+            this.deleteButton.TabIndex = 29;
+            this.deleteButton.Text = "Delete selection";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ratingTextBox
+            // 
+            this.ratingTextBox.Location = new System.Drawing.Point(461, 261);
+            this.ratingTextBox.Name = "ratingTextBox";
+            this.ratingTextBox.Size = new System.Drawing.Size(113, 20);
+            this.ratingTextBox.TabIndex = 31;
+            // 
+            // directorTextBox
+            // 
+            this.directorTextBox.Location = new System.Drawing.Point(300, 261);
+            this.directorTextBox.Name = "directorTextBox";
+            this.directorTextBox.Size = new System.Drawing.Size(108, 20);
+            this.directorTextBox.TabIndex = 30;
+            // 
+            // lengthTextBox
+            // 
+            this.lengthTextBox.Location = new System.Drawing.Point(461, 225);
+            this.lengthTextBox.Name = "lengthTextBox";
+            this.lengthTextBox.Size = new System.Drawing.Size(113, 20);
+            this.lengthTextBox.TabIndex = 29;
+            // 
+            // yearTextBox
+            // 
+            this.yearTextBox.Location = new System.Drawing.Point(300, 225);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(108, 20);
+            this.yearTextBox.TabIndex = 28;
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Location = new System.Drawing.Point(300, 187);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(274, 20);
+            this.titleTextBox.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Genre:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 171);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Movie:";
+            // 
+            // genreTextBox
+            // 
+            this.genreTextBox.Location = new System.Drawing.Point(300, 152);
+            this.genreTextBox.Name = "genreTextBox";
+            this.genreTextBox.Size = new System.Drawing.Size(97, 20);
+            this.genreTextBox.TabIndex = 28;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(258, 155);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Genre:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(265, 299);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Path:";
+            // 
+            // pathTextBox
+            // 
+            this.pathTextBox.Location = new System.Drawing.Point(300, 296);
+            this.pathTextBox.Name = "pathTextBox";
+            this.pathTextBox.Size = new System.Drawing.Size(274, 20);
+            this.pathTextBox.TabIndex = 28;
+            // 
+            // showAllButton
+            // 
+            this.showAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showAllButton.Location = new System.Drawing.Point(182, 12);
+            this.showAllButton.Name = "showAllButton";
+            this.showAllButton.Size = new System.Drawing.Size(55, 20);
+            this.showAllButton.TabIndex = 33;
+            this.showAllButton.Text = "Show all";
+            this.showAllButton.UseVisualStyleBackColor = true;
+            this.showAllButton.Click += new System.EventHandler(this.showAllButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 577);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(590, 577);
+            this.Controls.Add(this.showAllButton);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.genreTextBox);
+            this.Controls.Add(this.pathTextBox);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ratingTextBox);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.directorTextBox);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lengthTextBox);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.yearTextBox);
             this.Controls.Add(this.addButton);
+            this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.modifyButton);
-            this.Controls.Add(this.yearLabel);
-            this.Controls.Add(this.ratingLabel);
-            this.Controls.Add(this.directorLabel);
-            this.Controls.Add(this.lengthLabel);
-            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -419,11 +485,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label lengthLabel;
-        private System.Windows.Forms.Label directorLabel;
-        private System.Windows.Forms.Label ratingLabel;
-        private System.Windows.Forms.Label yearLabel;
         private System.Windows.Forms.Button modifyButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button exitButton;
@@ -445,7 +506,19 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.TextBox ratingTextBox;
+        private System.Windows.Forms.TextBox directorTextBox;
+        private System.Windows.Forms.TextBox lengthTextBox;
+        private System.Windows.Forms.TextBox yearTextBox;
+        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox genreTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox pathTextBox;
+        private System.Windows.Forms.Button showAllButton;
     }
 }
 
